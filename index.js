@@ -38,16 +38,44 @@ Airplane.prototype.land = function () {
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
-
-function Person() {
-  
+// create our constructor function -- we know that its taking name and age
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
 
+Person.prototype.eat = function (edible){
+  if(this.stomach.length < 10){
+    this.stomach.push(edible)
+  }
+}
 
+Person.prototype.poop = function(){
+  this.stomach = [];
+}
 
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
 
+const lambdaStudentOne = new Person('Nick', 29);
+const lambdaStudentTwo = new Person('Devin', 23);
+const lambdaStudentThree = new Person(`Matt`, 443);
 
+console.log(lambdaStudentOne.toString());
+console.log(lambdaStudentTwo.toString());
+console.log(lambdaStudentThree.toString());
 
+lambdaStudentThree.eat('fish');
+lambdaStudentThree.eat('potato');
+lambdaStudentThree.eat('lemon');
+
+console.log(lambdaStudentThree.stomach)
+
+lambdaStudentThree.poop();
+
+console.log(lambdaStudentThree.stomach)
 
 /*
   TASK 2
@@ -63,9 +91,22 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-  
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
+
+Car.prototype.fill = function(gallons){
+  this.tank + gallons
+}
+
+
+
+
+
+
 
 
 /*
