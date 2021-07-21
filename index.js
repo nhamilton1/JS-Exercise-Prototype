@@ -103,6 +103,7 @@ Car.prototype.fill = function(gallons){
 }
 
 
+
 const newCar = new Car('honda', '30mpg')
 console.log('task 2', newCar.fill());
 console.log('tank check', newCar.tank)
@@ -124,13 +125,13 @@ function Baby(name, age, favoriteToy) {
 
 Baby.prototype = Object.create(Person.prototype);
 
-Baby.prototype.favoriteToy = function(){
+Baby.prototype.play = function(){
   return `Playing with ${this.favoriteToy}`;
 }
 
 
 const baby1 = new Baby('Jo', 1, 'rattle')
-// console.log(baby1.favoriteToy());
+console.log(baby1.play());
 
 /* 
   TASK 4
