@@ -118,23 +118,27 @@ console.log('tank check', newCar.tank)
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby(name, age, favoriteToy) {
-  Person.call(this, name, age)
-  this.favoriteToy = favoriteToy
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
 }
 
-Baby.prototype = Object.create(Person.prototype)
+Baby.prototype = Object.create(Person.prototype);
+
 Baby.prototype.favoriteToy = function(){
-  return `Playing with ${this.favoriteToy}`
+  return `Playing with ${this.favoriteToy}`;
 }
 
+
+const baby1 = new Baby('Jo', 1, 'rattle')
+// console.log(baby1.favoriteToy());
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window Binding -- When the function is contained in the global scope, the value of this inside of that function will default to the window
+  2. Implicit binding -- when you invoke a function, you need to look to the left of the dot that's what 'this referes to
+  3. Explicit Binding -- is telling JavaScript exactly what this will be, it uses .call, .apply, and .bind
+  4. New Binding -- new keyword, for example 'const baby1 = new Baby' constructs a completely new object and 'this' goes to it
 */
 
 
