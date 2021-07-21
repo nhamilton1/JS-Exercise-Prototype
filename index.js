@@ -63,7 +63,7 @@ const lambdaStudentOne = new Person('Nick', 29);
 const lambdaStudentTwo = new Person('Devin', 23);
 const lambdaStudentThree = new Person(`Matt`, 443);
 
-console.log(lambdaStudentOne.toString());
+console.log('Task 1',lambdaStudentOne.toString());
 console.log(lambdaStudentTwo.toString());
 console.log(lambdaStudentThree.toString());
 
@@ -99,12 +99,13 @@ function Car(model, milesPerGallon) {
 }
 
 Car.prototype.fill = function(gallons){
-  this.tank + gallons
+  this.tank += gallons
 }
 
 
-
-
+const newCar = new Car('honda', '30mpg')
+console.log('task 2', newCar.fill());
+console.log('tank check', newCar.tank)
 
 
 
@@ -116,8 +117,14 @@ Car.prototype.fill = function(gallons){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
- 
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age)
+  this.favoriteToy = favoriteToy
+}
+
+Baby.prototype = Object.create(Person.prototype)
+Baby.prototype.favoriteToy = function(){
+  return `Playing with ${this.favoriteToy}`
 }
 
 
