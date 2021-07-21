@@ -102,11 +102,23 @@ Car.prototype.fill = function(gallons){
   this.tank += gallons
 }
 
+Car.prototype.drive = function(distance){
+  const driverableMiles = this.tank * this.milesPerGallon;
+  if(distance <= driveableMiles){
+    this.odometer = this.odometer + distance;
+    this.tank = this.tank - (distance / this.milesPerGallon);
+  }else{
+    this.tank = 0;
+    this.odometer = this.odometer + driveableMiles;
+    return `I ran out of fuel at ${this.odometer} miles`;
+  }
+}
 
 
 const newCar = new Car('honda', '30mpg')
-console.log('task 2', newCar.fill());
-console.log('tank check', newCar.tank)
+newCar.fill(10);
+console.log('Task 2:', newCar.model, newCar.milesPerGallon, newCar.tank);
+
 
 
 
@@ -130,8 +142,11 @@ Baby.prototype.play = function(){
 }
 
 
-const baby1 = new Baby('Jo', 1, 'rattle')
-console.log(baby1.play());
+const baby1 = new Baby('X', 1, 'rattle')
+console.log(baby1);
+console.log('Task 3:', baby1.play());
+
+
 
 /* 
   TASK 4
